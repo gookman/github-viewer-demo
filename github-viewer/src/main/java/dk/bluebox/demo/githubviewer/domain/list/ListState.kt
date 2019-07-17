@@ -1,0 +1,9 @@
+package dk.bluebox.demo.githubviewer.domain.list
+
+import dk.bluebox.demo.githubviewer.domain.models.Repository
+
+sealed class ListState {
+    object Loading : ListState()
+    data class Error(val throwable: Throwable) : ListState()
+    data class Success(val repositories: List<Repository>) : ListState()
+}

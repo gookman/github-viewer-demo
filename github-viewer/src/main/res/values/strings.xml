@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+    <string name="app_name">GitHub Viewer</string>
+
+    <string name="results.updated">Updated: %1s</string>
+    <string name="results.title">Repositories</string>
+
+    <string name="details.pull_requests.title">Pull Requests</string>
+    <string name="details.error_message">There was an error</string>
+    <string name="details.updated">Updated: %1s</string>
+    <string name="details.open_issues">Open issues: %1d</string>
+    <string name="details.title">Details</string>
+</resources>
