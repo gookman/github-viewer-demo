@@ -8,6 +8,7 @@ import dk.bluebox.demo.githubviewer.domain.details.DetailsEvent
 import dk.bluebox.demo.githubviewer.domain.details.DetailsInteractor
 import dk.bluebox.demo.githubviewer.domain.details.DetailsState
 import dk.bluebox.demo.githubviewer.domain.models.PullRequest
+import dk.bluebox.demo.githubviewer.domain.models.Repository
 import dk.bluebox.demo.githubviewer.rx.SchedulersProvider
 import dk.bluebox.demo.githubviewer.ui.utils.propertyBinding
 import io.reactivex.subjects.PublishSubject
@@ -53,7 +54,7 @@ class DetailsViewModelImpl(
     }
 
     private fun handleSuccess(successState: DetailsState.Success) {
-        headerViewModel = DetailsHeaderViewModel(context, successState.repository)
+        headerViewModel = DetailsHeaderViewModel(context, successState.repository, ::toggleBookmark)
         pullRequests = successState.pullRequests.map { it.toViewModel() }
 
         contentsVisible = true
@@ -72,6 +73,10 @@ class DetailsViewModelImpl(
         loadingVisible = true
         contentsVisible = false
         errorVisible = false
+    }
+
+    private fun toggleBookmark(target: Repository) {
+        eventPublisher.onNext(DetailsEvent.ToggleBookmark(target))
     }
 
     private fun PullRequest.toViewModel(): PullRequestListItemViewModel {

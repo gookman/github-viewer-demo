@@ -7,6 +7,7 @@ import dk.bluebox.demo.githubviewer.ui.utils.activityLayoutBinding
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding.lifecycleOwner = this
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopKoin()
     }
 
     private fun setupKoin() {

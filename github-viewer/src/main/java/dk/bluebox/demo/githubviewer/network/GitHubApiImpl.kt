@@ -16,7 +16,7 @@ class GitHubApiImpl(serviceFactory: ServiceFactory) : GitHubApi {
 
     override fun getPullRequests(owner: String, repositoryName: String): Single<List<PullRequest>> {
         return service.getPullRequests(owner, repositoryName).map { entities ->
-            entities.slice(0 until MAX_RESULTS).map { it.toPullRequest() }
+            entities.take(MAX_RESULTS).map { it.toPullRequest() }
         }
     }
 

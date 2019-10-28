@@ -1,12 +1,13 @@
-package dk.bluebox.demo.githubviewer.domain
+package dk.bluebox.demo.githubviewer.data
 
 import dk.bluebox.demo.githubviewer.domain.models.PullRequest
 import dk.bluebox.demo.githubviewer.domain.models.Repository
 import dk.bluebox.demo.githubviewer.network.GitHubApi
+import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 
-class GitHubRepositoryImpl(private val api: GitHubApi) : GitHubRepository {
+class DefaultGitHubRepository(private val api: GitHubApi) : GitHubRepository {
     private val reposCache = LinkedHashMap<Long, Repository>()
     private val pullRequestsCache = HashMap<Int, List<PullRequest>>()
 
@@ -19,10 +20,16 @@ class GitHubRepositoryImpl(private val api: GitHubApi) : GitHubRepository {
 
     override fun getRepository(id: Long): Single<Repository> {
         return Single.create { emitter ->
-
             reposCache[id]?.let {
                 emitter.onSuccess(it)
             } ?: emitter.onError(Throwable("Cannot find repo $id"))
+        }
+    }
+
+    override fun updateRepository(repository: Repository): Completable {
+        return Completable.create { emitter ->
+            reposCache[repository.id] = repository
+            emitter.onComplete()
         }
     }
 

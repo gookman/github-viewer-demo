@@ -5,7 +5,11 @@ import dk.bluebox.demo.githubviewer.R
 import dk.bluebox.demo.githubviewer.domain.models.Repository
 import dk.bluebox.demo.githubviewer.ui.utils.SIMPLE_ISO_DATE_TIME
 
-class DetailsHeaderViewModel(context: Context, repo: Repository) {
+class DetailsHeaderViewModel(
+    context: Context,
+    private val repo: Repository,
+    private val toggleBookmark: (Repository) -> Unit = {}) {
+
     val name = repo.name
     val owner = repo.ownerName
     val description = repo.description
@@ -15,4 +19,9 @@ class DetailsHeaderViewModel(context: Context, repo: Repository) {
     val stars = repo.starsCount.toString()
     val watchers = repo.watchersCount.toString()
     val forks = repo.forksCount.toString()
+    val bookmarkIcon = if (repo.bookmarked) R.drawable.ic_bookmark else R.drawable.ic_bookmark_border
+
+    fun onBookmarkClicked() {
+        toggleBookmark(repo)
+    }
 }

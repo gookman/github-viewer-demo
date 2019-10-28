@@ -1,7 +1,7 @@
 package dk.bluebox.demo.githubviewer.domain.list
 
-import dk.bluebox.demo.githubviewer.domain.GitHubRepository
-import dk.bluebox.demo.githubviewer.domain.Router
+import dk.bluebox.demo.githubviewer.data.GitHubRepository
+import dk.bluebox.demo.githubviewer.navigation.Router
 import io.reactivex.Observable
 
 class ListInteractorImpl(

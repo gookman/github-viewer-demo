@@ -9,4 +9,5 @@
     <string name="details.updated">Updated: %1s</string>
     <string name="details.open_issues">Open issues: %1d</string>
     <string name="details.title">Details</string>
+    <string name="details.bookmark">Bookmark</string>
 </resources>

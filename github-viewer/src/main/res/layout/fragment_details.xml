@@ -140,6 +140,20 @@
             app:layout_constraintTop_toBottomOf="@+id/watchers"
             tools:text="1000" />
 
+        <ImageView
+            style="@style/AppTheme.BackgroundBorderless"
+            android:id="@+id/bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_default"
+            android:src="@{viewModel.headerViewModel.bookmarkIcon}"
+            android:contentDescription="@string/details.bookmark"
+            android:onClick="@{() -> viewModel.headerViewModel.onBookmarkClicked()}"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            tools:src="@drawable/ic_bookmark_border" />
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/endBarrier"
             android:layout_width="wrap_content"

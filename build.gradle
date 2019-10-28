@@ -6,6 +6,7 @@ buildscript {
     ext.retrofitVersion = '2.6.2'
     ext.moshiVersion = "1.8.0"
     ext.koinVersion = '2.0.1'
+    ext.roomVersion = "2.2.1"
 
     ext.gradleToolsVersion = '4.0.0-alpha01'
 

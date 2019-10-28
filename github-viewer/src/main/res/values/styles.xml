@@ -31,4 +31,8 @@
         <item name="android:paddingBottom">@dimen/gap_small</item>
     </style>
 
+    <style name="AppTheme.BackgroundBorderless">
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+    </style>
+
 </resources>

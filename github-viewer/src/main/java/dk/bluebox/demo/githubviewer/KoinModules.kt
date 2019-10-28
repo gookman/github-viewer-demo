@@ -1,9 +1,13 @@
 package dk.bluebox.demo.githubviewer
 
-import dk.bluebox.demo.githubviewer.domain.GitHubRepository
-import dk.bluebox.demo.githubviewer.domain.GitHubRepositoryImpl
-import dk.bluebox.demo.githubviewer.domain.Router
-import dk.bluebox.demo.githubviewer.domain.RouterImpl
+import android.content.Context
+import androidx.room.Room
+import dk.bluebox.demo.githubviewer.data.GitHubRepository
+import dk.bluebox.demo.githubviewer.data.DefaultGitHubRepository
+import dk.bluebox.demo.githubviewer.data.room.AppDatabase
+import dk.bluebox.demo.githubviewer.data.room.RoomGitHubRepository
+import dk.bluebox.demo.githubviewer.navigation.Router
+import dk.bluebox.demo.githubviewer.navigation.RouterImpl
 import dk.bluebox.demo.githubviewer.domain.details.DetailsInteractor
 import dk.bluebox.demo.githubviewer.domain.details.DetailsInteractorImpl
 import dk.bluebox.demo.githubviewer.domain.list.ListInteractor
@@ -33,9 +37,24 @@ val koinModule = module {
 
     single { GitHubApiImpl(serviceFactory = get()) as GitHubApi }
 
-    single { GitHubRepositoryImpl(api = get()) as GitHubRepository }
+    //single { DefaultGitHubRepository(api = get()) as GitHubRepository }
+    single { RoomGitHubRepository(
+            defaultRepository = DefaultGitHubRepository(api = get()),
+            database = get(),
+            schedulersProvider = get()
+        ) as GitHubRepository
+    }
 
     single { ListInteractorImpl(router = get(), repository = get()) as ListInteractor }
 
     single { DetailsInteractorImpl(repository = get()) as DetailsInteractor }
+
+    single { createDatabase(applicationContext = androidContext()) }
+}
+
+private fun createDatabase(applicationContext: Context): AppDatabase {
+    return Room.databaseBuilder(
+        applicationContext,
+        AppDatabase::class.java, "github-viewer"
+    ).build()
 }
