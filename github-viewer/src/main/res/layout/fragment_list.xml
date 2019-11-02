@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="dk.bluebox.demo.githubviewer.ui.list.ListViewModel" />
+            type="dk.bluebox.demo.githubviewer.common.ui.list.ListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

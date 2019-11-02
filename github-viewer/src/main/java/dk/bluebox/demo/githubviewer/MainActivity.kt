@@ -3,7 +3,7 @@ package dk.bluebox.demo.githubviewer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dk.bluebox.demo.githubviewer.databinding.ActivityMainBinding
-import dk.bluebox.demo.githubviewer.ui.utils.activityLayoutBinding
+import dk.bluebox.demo.githubviewer.common.ui.utils.activityLayoutBinding
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

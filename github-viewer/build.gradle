@@ -39,6 +39,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        rx {
+            dimension "version"
+        }
+
+        flow {
+            dimension "version"
+        }
+    }
 }
 
 dependencies {
