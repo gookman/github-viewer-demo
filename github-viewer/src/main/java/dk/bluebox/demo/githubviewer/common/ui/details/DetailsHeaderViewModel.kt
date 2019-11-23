@@ -8,7 +8,8 @@ import dk.bluebox.demo.githubviewer.common.ui.utils.SIMPLE_ISO_DATE_TIME
 class DetailsHeaderViewModel(
     context: Context,
     private val repo: Repository,
-    private val toggleBookmark: (Repository) -> Unit = {}) {
+    private val toggleBookmark: (Repository) -> Unit = {}
+) {
 
     val name = repo.name
     val owner = repo.ownerName

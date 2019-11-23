@@ -54,6 +54,13 @@ android {
     }
 }
 
+detekt {
+    config = files("$rootDir/detekt-config.yml")
+    filters = ".*build.*,.*/resources/.*,.*/tmp/.*"
+    //Optional baseline, uncomment & run gradle command detektBaseline to exclude existing issues
+    //baseline = file("detekt-baseline.xml")
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -99,4 +106,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+tasks.withType(io.gitlab.arturbosch.detekt.Detekt) {
+    autoCorrect = true
 }

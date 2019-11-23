@@ -12,7 +12,8 @@ abstract class DataBindingAdapter : RecyclerView.Adapter<DataBindingViewHolder>(
     abstract fun getItem(position: Int): DataBindingItem
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder {
-        return bindingInfoMap[viewType]?.createViewHolder(parent) ?: throw IllegalStateException("Cannot create view holder for type $viewType")
+        return bindingInfoMap[viewType]?.createViewHolder(parent)
+            ?: throw IllegalStateException("Cannot create view holder for type $viewType")
     }
 
     override fun onBindViewHolder(holder: DataBindingViewHolder, position: Int) {

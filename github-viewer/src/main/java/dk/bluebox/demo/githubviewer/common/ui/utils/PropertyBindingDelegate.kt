@@ -3,7 +3,7 @@ package dk.bluebox.demo.githubviewer.common.ui.utils
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-class PropertyBindingDelegate<T>(private val propertyId: Int, defaultValue: T) : ReadWriteProperty<BaseViewModel, T>  {
+class PropertyBindingDelegate<T>(private val propertyId: Int, defaultValue: T) : ReadWriteProperty<BaseViewModel, T> {
     private var backingValue = defaultValue
 
     override fun getValue(thisRef: BaseViewModel, property: KProperty<*>): T {

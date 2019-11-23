@@ -6,7 +6,9 @@ import androidx.databinding.ViewDataBinding
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class ActivityLayoutBindingDelegate<T : ViewDataBinding>(private val layoutId: Int) : ReadOnlyProperty<AppCompatActivity, T> {
+class ActivityLayoutBindingDelegate<T : ViewDataBinding>(
+    private val layoutId: Int
+) : ReadOnlyProperty<AppCompatActivity, T> {
 
     private lateinit var binding: T
 

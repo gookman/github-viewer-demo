@@ -8,7 +8,8 @@ data class PullRequest(
     val number: Long,
     val state: State,
     val ownerName: String,
-    val lastUpdate: LocalDateTime) {
+    val lastUpdate: LocalDateTime
+) {
 
     enum class State {
         OPEN, CLOSED

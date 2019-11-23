@@ -3,7 +3,7 @@ package dk.bluebox.demo.githubviewer.common.ui.list
 import androidx.databinding.Bindable
 import dk.bluebox.demo.githubviewer.common.ui.utils.BaseViewModel
 
-abstract class ListViewModel() : BaseViewModel() {
+abstract class ListViewModel : BaseViewModel() {
 
     abstract val title: String
 
