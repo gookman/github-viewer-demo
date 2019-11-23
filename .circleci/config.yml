@@ -27,15 +27,20 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "_build_file_var" }}
       - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew lint test detekt
       - run:
           name: Prepare Artifacts
           command: |
             mkdir /tmp/reports
             cp ${APP_DIR}/build/reports/lint-results.xml /tmp/reports/lint-results.xml
             cp ${APP_DIR}/build/reports/lint-results.html /tmp/reports/lint-results.html
+
+            mkdir /tmp/reports/detekt
+            cp ${APP_DIR}/build/reports/detekt/* /tmp/reports/detekt
+
             mkdir /tmp/test-results
             cp -r ${APP_DIR}/build/test-results/* /tmp/test-results
+          when: always
       - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: /tmp/reports
           destination: reports
