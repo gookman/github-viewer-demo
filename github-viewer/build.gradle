@@ -99,7 +99,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03'
 
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
 
