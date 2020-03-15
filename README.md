@@ -5,6 +5,8 @@ A demo project to experiment with Android technologies
 
 There are currently two flavours in the project: one for RxJava and the another for Kotlin Flow
 
+Dependency injection on this branch is done with koin.
+
 Currently using:
 - retrofit
 - rxjava/kotlin flow
