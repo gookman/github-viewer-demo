@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.utils
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -22,5 +22,7 @@ class ActivityLayoutBindingDelegate<T : ViewDataBinding>(
 }
 
 fun <T : ViewDataBinding> activityLayoutBinding(layoutId: Int): ActivityLayoutBindingDelegate<T> {
-    return ActivityLayoutBindingDelegate(layoutId)
+    return ActivityLayoutBindingDelegate(
+        layoutId
+    )
 }

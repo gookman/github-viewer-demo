@@ -8,8 +8,8 @@ import dk.bluebox.demo.githubviewer.R
 import dk.bluebox.demo.githubviewer.features.details.domain.DetailsInteractor
 import dk.bluebox.demo.githubviewer.common.domain.models.PullRequest
 import dk.bluebox.demo.githubviewer.common.domain.models.Repository
-import dk.bluebox.demo.githubviewer.common.ui.utils.propertyBinding
 import dk.bluebox.demo.githubviewer.common.ui.ChannelCleaner
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.propertyBinding
 import dk.bluebox.demo.githubviewer.features.details.domain.DetailsEvent
 import dk.bluebox.demo.githubviewer.features.details.domain.DetailsState
 import kotlinx.coroutines.ExperimentalCoroutinesApi

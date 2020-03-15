@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.bindingadapter
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding.bindingadapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

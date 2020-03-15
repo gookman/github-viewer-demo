@@ -1,6 +1,6 @@
 package dk.bluebox.demo.githubviewer.common.ui
 
-import dk.bluebox.demo.githubviewer.common.ui.utils.Cleaner
+import dk.bluebox.demo.githubviewer.common.ui.core.Cleaner
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
 

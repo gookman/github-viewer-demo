@@ -9,7 +9,7 @@ import dk.bluebox.demo.githubviewer.features.list.domain.ListInteractor
 import dk.bluebox.demo.githubviewer.features.list.domain.ListState
 import dk.bluebox.demo.githubviewer.common.domain.models.Repository
 import dk.bluebox.demo.githubviewer.common.rx.SchedulersProvider
-import dk.bluebox.demo.githubviewer.common.ui.utils.propertyBinding
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.propertyBinding
 import dk.bluebox.demo.githubviewer.common.ui.DisposableCleaner
 import io.reactivex.subjects.PublishSubject
 
@@ -21,13 +21,25 @@ class ListViewModelImpl(
 
     override val title = context.getString(R.string.results_title)
 
-    override var loadingVisible by propertyBinding(BR.loadingVisible, true)
+    override var loadingVisible by propertyBinding(
+        BR.loadingVisible,
+        true
+    )
 
-    override var itemsVisible by propertyBinding(BR.itemsVisible, false)
+    override var itemsVisible by propertyBinding(
+        BR.itemsVisible,
+        false
+    )
 
-    override var errorVisible by propertyBinding(BR.errorVisible, false)
+    override var errorVisible by propertyBinding(
+        BR.errorVisible,
+        false
+    )
 
-    override var items by propertyBinding(BR.items, emptyList<RepositoryListItemViewModel>())
+    override var items by propertyBinding(
+        BR.items,
+        emptyList<RepositoryListItemViewModel>()
+    )
 
     private val eventPublisher = PublishSubject.create<ListEvent>()
 

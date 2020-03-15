@@ -5,8 +5,8 @@ import dk.bluebox.demo.githubviewer.BR
 import dk.bluebox.demo.githubviewer.R
 import dk.bluebox.demo.githubviewer.common.domain.models.PullRequest
 import dk.bluebox.demo.githubviewer.common.ui.utils.SIMPLE_ISO_DATE_TIME
-import dk.bluebox.demo.githubviewer.common.ui.bindingadapter.DataBindingInfo
-import dk.bluebox.demo.githubviewer.common.ui.bindingadapter.DataBindingItem
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.bindingadapter.DataBindingInfo
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.bindingadapter.DataBindingItem
 
 class PullRequestListItemViewModel(
     context: Context,

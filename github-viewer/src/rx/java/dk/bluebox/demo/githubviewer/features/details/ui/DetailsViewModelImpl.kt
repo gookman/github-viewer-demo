@@ -10,7 +10,7 @@ import dk.bluebox.demo.githubviewer.features.details.domain.DetailsState
 import dk.bluebox.demo.githubviewer.common.domain.models.PullRequest
 import dk.bluebox.demo.githubviewer.common.domain.models.Repository
 import dk.bluebox.demo.githubviewer.common.rx.SchedulersProvider
-import dk.bluebox.demo.githubviewer.common.ui.utils.propertyBinding
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.propertyBinding
 import dk.bluebox.demo.githubviewer.common.ui.DisposableCleaner
 import io.reactivex.subjects.PublishSubject
 
@@ -21,15 +21,30 @@ class DetailsViewModelImpl(
 ) : DetailsViewModel() {
     override val title = context.getString(R.string.details_title)
 
-    override var loadingVisible by propertyBinding(BR.loadingVisible, true)
+    override var loadingVisible by propertyBinding(
+        BR.loadingVisible,
+        true
+    )
 
-    override var contentsVisible by propertyBinding(BR.contentsVisible, false)
+    override var contentsVisible by propertyBinding(
+        BR.contentsVisible,
+        false
+    )
 
-    override var errorVisible by propertyBinding(BR.errorVisible, false)
+    override var errorVisible by propertyBinding(
+        BR.errorVisible,
+        false
+    )
 
-    override var headerViewModel: DetailsHeaderViewModel? by propertyBinding(BR.headerViewModel, null)
+    override var headerViewModel: DetailsHeaderViewModel? by propertyBinding(
+        BR.headerViewModel,
+        null
+    )
 
-    override var pullRequests by propertyBinding(BR.pullRequests, emptyList<PullRequestListItemViewModel>())
+    override var pullRequests by propertyBinding(
+        BR.pullRequests,
+        emptyList<PullRequestListItemViewModel>()
+    )
 
     private val eventPublisher = PublishSubject.create<DetailsEvent>()
 

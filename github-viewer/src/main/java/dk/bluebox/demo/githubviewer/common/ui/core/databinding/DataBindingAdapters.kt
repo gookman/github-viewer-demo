@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.utils
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding
 
 import android.view.View
 import android.widget.ImageView

@@ -1,10 +1,11 @@
 package dk.bluebox.demo.githubviewer.common.ui
 
-import dk.bluebox.demo.githubviewer.common.ui.utils.Cleaner
+import dk.bluebox.demo.githubviewer.common.ui.core.Cleaner
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-class DisposableCleaner : Cleaner<Disposable> {
+class DisposableCleaner :
+    Cleaner<Disposable> {
 
     private val disposables = CompositeDisposable()
 

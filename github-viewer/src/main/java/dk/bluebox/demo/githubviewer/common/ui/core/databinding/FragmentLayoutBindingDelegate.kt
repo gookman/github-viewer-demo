@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.utils
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -26,5 +26,7 @@ class FragmentLayoutBindingDelegate<T : ViewDataBinding>(private val layoutId: I
 }
 
 fun <T : ViewDataBinding> fragmentLayoutBindingInflater(layoutId: Int): FragmentLayoutBindingDelegate<T> {
-    return FragmentLayoutBindingDelegate(layoutId)
+    return FragmentLayoutBindingDelegate(
+        layoutId
+    )
 }

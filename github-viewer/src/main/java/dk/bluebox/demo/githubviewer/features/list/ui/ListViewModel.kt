@@ -1,7 +1,7 @@
 package dk.bluebox.demo.githubviewer.features.list.ui
 
 import androidx.databinding.Bindable
-import dk.bluebox.demo.githubviewer.common.ui.utils.BaseViewModel
+import dk.bluebox.demo.githubviewer.common.ui.core.BaseViewModel
 
 abstract class ListViewModel : BaseViewModel() {
 

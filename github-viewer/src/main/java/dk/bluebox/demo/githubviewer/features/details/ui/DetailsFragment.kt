@@ -10,12 +10,15 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dk.bluebox.demo.githubviewer.R
 import dk.bluebox.demo.githubviewer.databinding.FragmentDetailsBinding
-import dk.bluebox.demo.githubviewer.common.ui.utils.fragmentLayoutBindingInflater
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.fragmentLayoutBindingInflater
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
 
-    private val layoutBindingInflater = fragmentLayoutBindingInflater<FragmentDetailsBinding>(R.layout.fragment_details)
+    private val layoutBindingInflater =
+        fragmentLayoutBindingInflater<FragmentDetailsBinding>(
+            R.layout.fragment_details
+        )
 
     private val binding by layoutBindingInflater
     private val viewModel by viewModel<DetailsViewModel>()

@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import dk.bluebox.demo.githubviewer.R
 import dk.bluebox.demo.githubviewer.databinding.FragmentListBinding
-import dk.bluebox.demo.githubviewer.common.ui.utils.fragmentLayoutBindingInflater
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.fragmentLayoutBindingInflater
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListFragment : Fragment() {
-    private val layoutBindingInflater = fragmentLayoutBindingInflater<FragmentListBinding>(R.layout.fragment_list)
+    private val layoutBindingInflater =
+        fragmentLayoutBindingInflater<FragmentListBinding>(
+            R.layout.fragment_list
+        )
 
     private val binding by layoutBindingInflater
     private val viewModel by viewModel<ListViewModel>()

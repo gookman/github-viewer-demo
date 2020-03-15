@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.bindingadapter
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding.bindingadapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView

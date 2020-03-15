@@ -3,7 +3,7 @@ package dk.bluebox.demo.githubviewer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dk.bluebox.demo.githubviewer.databinding.ActivityMainBinding
-import dk.bluebox.demo.githubviewer.common.ui.utils.activityLayoutBinding
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.activityLayoutBinding
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,7 +13,9 @@ import org.koin.dsl.module
 
 class MainActivity : AppCompatActivity() {
 
-    private val binding by activityLayoutBinding<ActivityMainBinding>(R.layout.activity_main)
+    private val binding by activityLayoutBinding<ActivityMainBinding>(
+        R.layout.activity_main
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setupKoin()

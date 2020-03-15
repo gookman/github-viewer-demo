@@ -1,5 +1,6 @@
-package dk.bluebox.demo.githubviewer.common.ui.utils
+package dk.bluebox.demo.githubviewer.common.ui.core.databinding
 
+import dk.bluebox.demo.githubviewer.common.ui.core.BaseViewModel
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -17,5 +18,8 @@ class PropertyBindingDelegate<T>(private val propertyId: Int, defaultValue: T) :
 }
 
 fun <T> propertyBinding(propertyId: Int, defaultValue: T): PropertyBindingDelegate<T> {
-    return PropertyBindingDelegate(propertyId, defaultValue)
+    return PropertyBindingDelegate(
+        propertyId,
+        defaultValue
+    )
 }

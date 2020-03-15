@@ -1,4 +1,4 @@
-package dk.bluebox.demo.githubviewer.common.ui.utils
+package dk.bluebox.demo.githubviewer.common.ui.core
 
 import androidx.annotation.CallSuper
 import androidx.databinding.Observable
