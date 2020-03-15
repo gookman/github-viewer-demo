@@ -3,7 +3,7 @@ package dk.bluebox.demo.githubviewer.common.navigation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import dk.bluebox.demo.githubviewer.R
-import dk.bluebox.demo.githubviewer.common.ui.list.ListFragmentDirections
+import dk.bluebox.demo.githubviewer.features.list.ui.ListFragmentDirections
 
 internal class RouterImpl(private val activity: AppCompatActivity) :
     Router {

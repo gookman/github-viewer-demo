@@ -2,24 +2,24 @@ package dk.bluebox.demo.githubviewer
 
 import android.content.Context
 import androidx.room.Room
-import dk.bluebox.demo.githubviewer.flow.data.GitHubRepository
-import dk.bluebox.demo.githubviewer.flow.data.DefaultGitHubRepository
-import dk.bluebox.demo.githubviewer.flow.data.room.AppDatabase
+import dk.bluebox.demo.githubviewer.common.data.GitHubRepository
+import dk.bluebox.demo.githubviewer.common.data.DefaultGitHubRepository
+import dk.bluebox.demo.githubviewer.common.data.room.AppDatabase
 import dk.bluebox.demo.githubviewer.common.navigation.Router
 import dk.bluebox.demo.githubviewer.common.navigation.RouterImpl
-import dk.bluebox.demo.githubviewer.flow.domain.details.DetailsInteractor
-import dk.bluebox.demo.githubviewer.flow.domain.details.DetailsInteractorImpl
-import dk.bluebox.demo.githubviewer.flow.domain.list.ListInteractor
-import dk.bluebox.demo.githubviewer.flow.domain.list.ListInteractorImpl
-import dk.bluebox.demo.githubviewer.flow.network.GitHubApi
-import dk.bluebox.demo.githubviewer.flow.network.GitHubApiImpl
+import dk.bluebox.demo.githubviewer.features.details.domain.DetailsInteractor
+import dk.bluebox.demo.githubviewer.features.details.domain.DetailsInteractorImpl
+import dk.bluebox.demo.githubviewer.features.list.domain.ListInteractor
+import dk.bluebox.demo.githubviewer.features.list.domain.ListInteractorImpl
+import dk.bluebox.demo.githubviewer.common.network.GitHubApi
+import dk.bluebox.demo.githubviewer.common.network.GitHubApiImpl
 import dk.bluebox.demo.githubviewer.common.network.ServiceFactory
-import dk.bluebox.demo.githubviewer.flow.network.ServiceFactoryImpl
-import dk.bluebox.demo.githubviewer.common.ui.details.DetailsViewModel
-import dk.bluebox.demo.githubviewer.flow.ui.details.DetailsViewModelImpl
-import dk.bluebox.demo.githubviewer.common.ui.list.ListViewModel
-import dk.bluebox.demo.githubviewer.flow.data.room.RoomGitHubRepository
-import dk.bluebox.demo.githubviewer.flow.ui.list.ListViewModelImpl
+import dk.bluebox.demo.githubviewer.common.network.ServiceFactoryImpl
+import dk.bluebox.demo.githubviewer.features.details.ui.DetailsViewModelImpl
+import dk.bluebox.demo.githubviewer.common.data.room.RoomGitHubRepository
+import dk.bluebox.demo.githubviewer.features.details.ui.DetailsViewModel
+import dk.bluebox.demo.githubviewer.features.list.ui.ListViewModel
+import dk.bluebox.demo.githubviewer.features.list.ui.ListViewModelImpl
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext
@@ -47,19 +47,28 @@ val koinModule = module {
 
     factory { ServiceFactoryImpl() as ServiceFactory }
 
-    single { GitHubApiImpl(serviceFactory = get()) as GitHubApi }
+    single { GitHubApiImpl(
+        serviceFactory = get()
+    ) as GitHubApi }
 
 //    single { DefaultGitHubRepository(api = get()) as GitHubRepository }
     single {
         RoomGitHubRepository(
-            defaultRepository = DefaultGitHubRepository(api = get()),
+            defaultRepository = DefaultGitHubRepository(
+                api = get()
+            ),
             database = get()
         ) as GitHubRepository
     }
 
-    single { ListInteractorImpl(router = get(), repository = get()) as ListInteractor }
+    single { ListInteractorImpl(
+        router = get(),
+        repository = get()
+    ) as ListInteractor }
 
-    single { DetailsInteractorImpl(repository = get()) as DetailsInteractor }
+    single { DetailsInteractorImpl(
+        repository = get()
+    ) as DetailsInteractor }
 
     single { createDatabase(applicationContext = androidContext()) }
 }

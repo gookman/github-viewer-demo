@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="dk.bluebox.demo.githubviewer.common.ui.details.DetailsViewModel" />
+            type="dk.bluebox.demo.githubviewer.features.details.ui.DetailsViewModel" />
 
     </data>
 

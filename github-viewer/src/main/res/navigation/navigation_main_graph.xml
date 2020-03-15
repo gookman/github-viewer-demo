@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="dk.bluebox.demo.githubviewer.common.ui.list.ListFragment"
+        android:name="dk.bluebox.demo.githubviewer.features.list.ui.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="dk.bluebox.demo.githubviewer.common.ui.details.DetailsFragment"
+        android:name="dk.bluebox.demo.githubviewer.features.details.ui.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
         <argument
