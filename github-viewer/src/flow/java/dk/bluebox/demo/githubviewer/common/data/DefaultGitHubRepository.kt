@@ -10,8 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
 
-class DefaultGitHubRepository(private val api: GitHubApi) :
-    GitHubRepository {
+class DefaultGitHubRepository(private val api: GitHubApi) : GitHubRepository {
     private val reposCache = LinkedHashMap<Long, Repository>()
     private val pullRequestsCache = HashMap<Int, List<PullRequest>>()
 
