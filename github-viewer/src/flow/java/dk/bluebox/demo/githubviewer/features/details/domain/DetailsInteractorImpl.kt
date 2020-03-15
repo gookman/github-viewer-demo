@@ -12,10 +12,11 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flattenConcat
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class DetailsInteractorImpl(
+class DetailsInteractorImpl @Inject constructor(
     private val repository: GitHubRepository
 ) : DetailsInteractor {
 

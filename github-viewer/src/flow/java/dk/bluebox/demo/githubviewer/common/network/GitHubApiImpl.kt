@@ -5,9 +5,9 @@ import dk.bluebox.demo.githubviewer.common.domain.models.Repository
 import dk.bluebox.demo.githubviewer.common.network.json.LocalDateTimeAdapter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class GitHubApiImpl(serviceFactory: ServiceFactory) :
-    GitHubApi {
+class GitHubApiImpl @Inject constructor(serviceFactory: ServiceFactory) : GitHubApi {
     private val service = serviceFactory.createService(GitHubService::class.java, emptyList(), getJsonAdapters())
 
     override fun getRepositories(): Flow<List<Repository>> {

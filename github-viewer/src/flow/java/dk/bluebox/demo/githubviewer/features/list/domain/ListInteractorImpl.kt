@@ -12,10 +12,11 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class ListInteractorImpl(
+class ListInteractorImpl @Inject constructor(
     private val router: Router,
     private val repository: GitHubRepository
 ) : ListInteractor {

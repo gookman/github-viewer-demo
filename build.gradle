@@ -5,9 +5,10 @@ buildscript {
     ext.navVersion = '2.3.0-alpha03'
     ext.retrofitVersion = '2.6.2'
     ext.moshiVersion = '1.8.0'
-    ext.koinVersion = '2.0.1'
     ext.roomVersion = '2.2.4'
     ext.detektVersion = '1.1.1'
+    ext.daggerVersion = '2.26'
+    ext.scabbardVersion = '0.2.0'
 
     ext.gradleToolsVersion = '4.1.0-alpha01'
 
@@ -27,6 +28,7 @@ buildscript {
 
 plugins {
     id "io.gitlab.arturbosch.detekt" version "$detektVersion"
+    id "scabbard.gradle" version "$scabbardVersion"
 }
 
 allprojects {

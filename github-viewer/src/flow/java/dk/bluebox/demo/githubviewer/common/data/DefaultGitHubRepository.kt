@@ -9,8 +9,11 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
-class DefaultGitHubRepository(private val api: GitHubApi) : GitHubRepository {
+class DefaultGitHubRepository @Inject constructor(
+    private val api: GitHubApi
+) : GitHubRepository {
     private val reposCache = LinkedHashMap<Long, Repository>()
     private val pullRequestsCache = HashMap<Int, List<PullRequest>>()
 

@@ -11,8 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class ServiceFactoryImpl(private val schedulersProvider: SchedulersProvider) : ServiceFactory {
+class ServiceFactoryImpl @Inject constructor(
+    private val schedulersProvider: SchedulersProvider
+) : ServiceFactory {
 
     override fun <T> createService(serviceClass: Class<T>, interceptors: List<Interceptor>, jsonAdapters: List<Any>): T {
         val okHttpClient = createOKHttpClient(interceptors)

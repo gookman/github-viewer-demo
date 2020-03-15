@@ -6,9 +6,11 @@ import dk.bluebox.demo.githubviewer.common.network.GitHubApi
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
+import javax.inject.Inject
 
-class DefaultGitHubRepository(private val api: GitHubApi) :
-    GitHubRepository {
+class DefaultGitHubRepository @Inject constructor(
+    private val api: GitHubApi
+) : GitHubRepository {
     private val reposCache = LinkedHashMap<Long, Repository>()
     private val pullRequestsCache = HashMap<Int, List<PullRequest>>()
 

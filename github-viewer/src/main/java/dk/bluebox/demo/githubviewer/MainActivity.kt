@@ -1,45 +1,34 @@
 package dk.bluebox.demo.githubviewer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import dk.bluebox.demo.githubviewer.common.ui.core.databinding.activityLayoutBinding
 import dk.bluebox.demo.githubviewer.databinding.ActivityMainBinding
 import dk.bluebox.demo.githubviewer.common.ui.core.databinding.activityLayoutBinding
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
-import org.koin.core.module.Module
-import org.koin.dsl.module
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
+
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
     private val binding by activityLayoutBinding<ActivityMainBinding>(
         R.layout.activity_main
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setupKoin()
+        AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
 
         binding.lifecycleOwner = this
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        stopKoin()
-    }
-
-    private fun setupKoin() {
-        startKoin {
-            androidLogger()
-            androidContext(this@MainActivity)
-
-            modules(listOf(koinModule, getActivityModule()))
-        }
-    }
-
-    private fun getActivityModule(): Module {
-        return module { single { this@MainActivity as AppCompatActivity } }
+    override fun androidInjector(): AndroidInjector<Any> {
+        return androidInjector
     }
 }

@@ -3,8 +3,9 @@ package dk.bluebox.demo.githubviewer.features.details.domain
 import dk.bluebox.demo.githubviewer.common.data.GitHubRepository
 import dk.bluebox.demo.githubviewer.common.domain.models.Repository
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class DetailsInteractorImpl(
+class DetailsInteractorImpl @Inject constructor(
     private val repository: GitHubRepository
 ) : DetailsInteractor {
 

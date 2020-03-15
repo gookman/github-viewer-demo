@@ -7,8 +7,9 @@ import dk.bluebox.demo.githubviewer.common.domain.models.Repository
 import dk.bluebox.demo.githubviewer.common.rx.SchedulersProvider
 import io.reactivex.Completable
 import io.reactivex.Single
+import javax.inject.Inject
 
-class RoomGitHubRepository(
+class RoomGitHubRepository @Inject constructor(
     private val defaultRepository: DefaultGitHubRepository,
     private val database: AppDatabase,
     private val schedulersProvider: SchedulersProvider

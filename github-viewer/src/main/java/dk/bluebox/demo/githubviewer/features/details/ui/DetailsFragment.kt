@@ -9,11 +9,12 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dk.bluebox.demo.githubviewer.R
+import dk.bluebox.demo.githubviewer.common.ui.core.BaseFragment
 import dk.bluebox.demo.githubviewer.databinding.FragmentDetailsBinding
 import dk.bluebox.demo.githubviewer.common.ui.core.databinding.fragmentLayoutBindingInflater
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import javax.inject.Inject
 
-class DetailsFragment : Fragment() {
+class DetailsFragment : BaseFragment() {
 
     private val layoutBindingInflater =
         fragmentLayoutBindingInflater<FragmentDetailsBinding>(
@@ -21,7 +22,9 @@ class DetailsFragment : Fragment() {
         )
 
     private val binding by layoutBindingInflater
-    private val viewModel by viewModel<DetailsViewModel>()
+
+    @Inject
+    lateinit var viewModel: DetailsViewModel
 
     private val arguments by navArgs<DetailsFragmentArgs>()
 

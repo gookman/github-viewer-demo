@@ -13,10 +13,11 @@ import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class RoomGitHubRepository(
+class RoomGitHubRepository @Inject constructor(
     private val defaultRepository: DefaultGitHubRepository,
     private val database: AppDatabase
 ) : GitHubRepository {

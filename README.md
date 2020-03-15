@@ -5,7 +5,7 @@ A demo project to experiment with Android technologies
 
 There are currently two flavours in the project: one for RxJava and the another for Kotlin Flow
 
-Dependency injection on this branch is done with koin.
+Dependency injection on this branch is done with dagger2.
 
 Currently using:
 - retrofit

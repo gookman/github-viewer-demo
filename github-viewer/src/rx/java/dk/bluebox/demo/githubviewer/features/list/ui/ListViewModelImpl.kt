@@ -12,8 +12,9 @@ import dk.bluebox.demo.githubviewer.common.rx.SchedulersProvider
 import dk.bluebox.demo.githubviewer.common.ui.core.databinding.propertyBinding
 import dk.bluebox.demo.githubviewer.common.ui.DisposableCleaner
 import io.reactivex.subjects.PublishSubject
+import javax.inject.Inject
 
-class ListViewModelImpl(
+class ListViewModelImpl @Inject constructor(
     private val context: Context,
     interactor: ListInteractor,
     schedulersProvider: SchedulersProvider

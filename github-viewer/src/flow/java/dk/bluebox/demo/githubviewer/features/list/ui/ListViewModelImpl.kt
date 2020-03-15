@@ -19,10 +19,11 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class ListViewModelImpl(
+class ListViewModelImpl @Inject constructor(
     private val context: Context,
     interactor: ListInteractor
 ) : ListViewModel() {
