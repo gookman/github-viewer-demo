@@ -14,34 +14,14 @@ import dk.bluebox.demo.githubviewer.features.list.domain.ListInteractorImpl
 import dk.bluebox.demo.githubviewer.common.network.GitHubApi
 import dk.bluebox.demo.githubviewer.common.network.GitHubApiImpl
 import dk.bluebox.demo.githubviewer.common.network.ServiceFactory
-import dk.bluebox.demo.githubviewer.features.details.ui.DetailsViewModel
 import dk.bluebox.demo.githubviewer.common.network.ServiceFactoryImpl
 import dk.bluebox.demo.githubviewer.common.rx.AndroidSchedulersProvider
 import dk.bluebox.demo.githubviewer.common.rx.SchedulersProvider
-import dk.bluebox.demo.githubviewer.features.details.ui.DetailsViewModelImpl
-import dk.bluebox.demo.githubviewer.features.list.ui.ListViewModel
 import dk.bluebox.demo.githubviewer.common.data.room.RoomGitHubRepository
-import dk.bluebox.demo.githubviewer.features.list.ui.ListViewModelImpl
 import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val koinModule = module {
-
-    viewModel {
-        ListViewModelImpl(
-            context = androidContext(),
-            interactor = get(),
-            schedulersProvider = get()
-        ) as ListViewModel
-    }
-    viewModel {
-        DetailsViewModelImpl(
-            context = androidContext(),
-            interactor = get(),
-            schedulersProvider = get()
-        ) as DetailsViewModel
-    }
 
     single { RouterImpl(activity = get()) as Router }
     single { AndroidSchedulersProvider() as SchedulersProvider }
