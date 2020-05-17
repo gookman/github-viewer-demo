@@ -10,6 +10,10 @@ android {
         enabled = true
     }
 
+    buildFeatures {
+        compose true
+    }
+
     compileSdkVersion 29
     defaultConfig {
         applicationId "dk.bluebox.demo.githubviewer"
@@ -38,6 +42,11 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "$composeVersion"
+        kotlinCompilerVersion "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
     }
 
     flavorDimensions "version"
@@ -101,6 +110,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+
+    implementation "androidx.compose:compose-runtime:$composeVersion"
+    implementation "androidx.ui:ui-core:$composeVersion"
+    implementation "androidx.ui:ui-layout:$composeVersion"
+    implementation "androidx.ui:ui-material:$composeVersion"
+    implementation "androidx.ui:ui-foundation:$composeVersion"
+    implementation "androidx.ui:ui-text-core:$composeVersion"
+    implementation "androidx.ui:ui-tooling:$composeVersion"
+    implementation "androidx.ui:ui-rxjava2:$composeVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

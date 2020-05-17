@@ -10,4 +10,7 @@
     <string name="details.open_issues">Open issues: %1d</string>
     <string name="details.title">Details</string>
     <string name="details.bookmark">Bookmark</string>
+
+    <string name="general.error">There was an error</string>
+    <string name="general.retry">Retry</string>
 </resources>
