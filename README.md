@@ -11,6 +11,5 @@ Currently using:
 - retrofit
 - rxjava/kotlin flow
 - room
-- ViewModel arc components
-- Navigation Components
+- Jetpack Compose
 - Architecture that is inspired by MVI
